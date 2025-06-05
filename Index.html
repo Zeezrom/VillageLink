@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Village App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="nav">
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('chat')">💬 Chat</button>
+    <button onclick="showPage('village')">🏘 Village</button>
+    <button onclick="showPage('vote')">🗳 Vote</button>
+  </div>
+  <div class="content">
+    <div id="chat" class="page">
+      <h2>Chat</h2>
+      <div class="channel-controls">
+        <input type="text" id="newChannelName" placeholder="New channel name" />
+        <button id="addChannelBtn">Add</button>
+        <button onclick="deleteChannel()">Delete</button>
+      </div>
+      <div class="channel-list">
+        <strong>Channels:</strong>
+        <ul id="channelList"></ul>
+      </div>
+      <div class="chat-box" id="chatBox"></div>
+      <div class="chat-input">
+        <input type="text" id="chatInput" placeholder="Type a message..." />
+      </div>
+    </div>
+    <div id="village" class="page active">
+      <h2>Village Hierarchy</h2>
+      <ul id="villageTree" class="tree-root"></ul>
+    </div>
+    <div id="vote" class="page">
+      <h2>Vote</h2>
+      <div class="vote-form">
+        <h3>Create a new vote</h3>
+        <input type="text" id="vote-question" placeholder="Enter your question" />
+        <input type="text" id="vote-option1" placeholder="Option 1" />
+        <input type="text" id="vote-option2" placeholder="Option 2" />
+        <input type="date" id="vote-deadline" placeholder="Voting deadline" />
+        <button onclick="addVoteItem()">Add Vote</button>
+      </div>
+      <div id="vote-items"></div>
+    </div>
+    <div id="home" class="page hidden">
+      <h2>Home</h2>
+      <div class="wallet-buttons">
+        <button id="connect-wallet-button">Connect to Wallet</button>
+        <button id="disconnect-wallet-button" style="display: none;">Disconnect</button>
+      </div>
+      <div id="wallet-info" style="margin-top: 20px; display: none;">
+        <p>Network: <span id="network-name">-</span></p>
+        <p>ETH Balance: <span id="eth-balance">-</span></p>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
